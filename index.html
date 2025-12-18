@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NSE Option Chain — Analysis</title>
+  <style>
+    body { font-family: system-ui, Arial; margin: 16px; }
+    .row { display:flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 12px; }
+    table { border-collapse: collapse; width: 100%; font-size: 12px; }
+    th, td { border-bottom: 1px solid #eee; padding: 6px 8px; text-align: right; }
+    th { position: sticky; top: 0; background: #fff; }
+    td.left, th.left { text-align: left; }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <div class="card">
+      <div><b>Data source</b></div>
+      <div style="margin-top:6px;">
+        <input id="csvUrl" style="width:520px;max-width:80vw;" />
+        <button id="loadBtn">Load</button>
+      </div>
+      <div style="margin-top:6px;font-size:12px;opacity:.7;">
+        Paste your published Google Sheet CSV URL (tab: chain)
+      </div>
+    </div>
+
+    <div class="card" id="kpis">
+      <div><b>KPIs</b></div>
+      <div id="kpiText" style="margin-top:6px;">—</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px;">
+    <div class="row" style="justify-content:space-between;">
+      <b>Option Chain (flattened)</b>
+      <span id="status" style="font-size:12px;opacity:.7;">—</span>
+    </div>
+    <div style="max-height:70vh; overflow:auto; margin-top:8px;">
+      <table id="tbl"></table>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
